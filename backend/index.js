@@ -8,7 +8,7 @@ app.use(cors())
 app.use(express.json()) // allows us to read JSON from the frontend
 
 let data = { 
-message: 'Hello from the backend!' 
+message: 'Hello from the backend!', 
 notice: 'This is the default notice'
 }
 
@@ -20,8 +20,8 @@ app.get('/api/data', (req, res) => {
 
 // Post route to update the message or notice
 app.post('/api/data', (req, res) => {
-   if (req.body.message !== undefinded) data.message = req.body.message
-   if (req.body.notice !== undefinded) data.notice = req.body.notice
+   if (req.body.message !== undefined) data.message = req.body.message
+   if (req.body.notice !== undefined) data.notice = req.body.notice
    
   res.json({ status: 'Data updated', newData: data })
 })
